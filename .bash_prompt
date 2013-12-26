@@ -114,5 +114,5 @@ PS1+=" "
 PS1+="${path}" # Working directory
 PS1+=" "
 PS1+="\$(prompt_git)" # Git details
-PS1+="\n$ " # Newline
 PS1+="${reset}"
+PS1+="\n$ " # Newline
