@@ -1,5 +1,3 @@
-echo ".bash_aliases is running"
-
 # Navigation
 alias ..="cd .."
 alias ...="cd ../../"
