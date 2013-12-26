@@ -1,0 +1,14 @@
+echo ".bash_aliases is running"
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../../"
+alias -- -="cd -"
+
+# Listing files
+alias ls="ls --color=auto"
+alias ll="ls -l"
+alias la="ls -Al"
+
+# Git
+alias g="git"
