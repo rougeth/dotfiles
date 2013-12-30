@@ -1,0 +1,22 @@
+[user]
+    name = Marco Rougeth
+    email = marco@rougeth.com
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+[color]
+    ui = always
+[color "branch"]
+    current = yellow bold
+    local = green bold
+    remote = cyan bold
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red bold
+[alias]
+    a = add .
+    c = commit
+    ca = commit -a
+    cm = commit -m
+    s = status
