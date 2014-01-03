@@ -116,3 +116,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Edit gnome-terminal colors
+source ~/.gnome-terminal.theme
