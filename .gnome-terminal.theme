@@ -1,2 +1,0 @@
-cp -r $HOME/.gconf/apps/gnome-terminal/profiles/Default \
-$HOME/.gconf/apps/gnome-terminal/profiles/.Default.backup
