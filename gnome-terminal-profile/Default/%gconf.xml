@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="palette" mtime="1388871669" type="string">
+		<stringvalue>#555557575353:#CCCC00000000:#420C99995A73:#EDEDD4D40000:#34346565A4A4:#757550507B7B:#060698209A9A:#D3D3D7D7CFCF:#88888A8A8585:#EFEF29292929:#3FFFBFFF6907:#FCFCE9E94F4F:#72729F9FCFCF:#ADAD7F7FA8A8:#3434E2E2E2E2:#FFFFFFFFFFFF</stringvalue>
+	</entry>
+	<entry name="scroll_on_output" mtime="1388871016" type="bool" value="false"/>
+	<entry name="scrollback_unlimited" mtime="1388871010" type="bool" value="true"/>
+	<entry name="background_color" mtime="1388870999" type="string">
+		<stringvalue>#000000000000</stringvalue>
+	</entry>
+	<entry name="foreground_color" mtime="1388870999" type="string">
+		<stringvalue>#FFFFFFFFFFFF</stringvalue>
+	</entry>
+	<entry name="use_theme_colors" mtime="1388870995" type="bool" value="false"/>
+	<entry name="font" mtime="1388870988" type="string">
+		<stringvalue>Ubuntu Mono 12</stringvalue>
+	</entry>
+	<entry name="use_system_font" mtime="1388870984" type="bool" value="false"/>
+</gconf>

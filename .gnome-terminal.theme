@@ -1,15 +1,2 @@
-cp -r ~/.gconf/apps/gnome-terminal/profile/Default \
-~/.gconf/apps/gnome-terminal/profile/.Default.backup
-
-
-path="/apps/gnome-terminal/profiles/Default"
-
-gconftool-2 -s -t bool $path/use_theme_colors false
-gconftool-2 -s -t string $path/background_type "solid"
-gconftool-2 -s -t string $path/background_color "#000000000000"
-gconftool-2 -s -t string $path/foreground_color "#FFFFFFFFFFFF"
-
-gconftool-2 -s -t bool $path/use_system_font false
-gconftool-2 -s -t string $path/font "Ubuntu Mono 12"
-
-gconftool-2 -s -t string $path/palette "#555557575353:#EFEF29292929:#3FFFBFFF6907:#EDEDD4D40000:#72729F9FCFCF:#757550507B7B:#060698209A9A:#FFFFFFFFFFFF:#AAAAAAAAAAAA:#EFEF29292929:#27C8A14749A5:#FCFCE9E94F4F:#37BD7536B5C1:#ADAD7F7FA8A8:#3434E2E2E2E2:#EEEEEEEEECEC"
+cp -r $HOME/.gconf/apps/gnome-terminal/profiles/Default \
+$HOME/.gconf/apps/gnome-terminal/profiles/.Default.backup
