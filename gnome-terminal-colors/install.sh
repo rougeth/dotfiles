@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+#
+# Script made by oconnor663
+# https://github.com/oconnor663/dotfiles
+#
 
 dir=$(dirname $0)
 gconfdir=/apps/gnome-terminal/profiles
