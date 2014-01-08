@@ -45,7 +45,6 @@ unset IFS
 #########################################################
 
 echo    "You have selected:"
-echo    "  Scheme:  $scheme"
 echo -e "  Profile: $profile_name (gconf key: ${profiles[$profile_key]})\n"
 
 #typeset -u confirmation
