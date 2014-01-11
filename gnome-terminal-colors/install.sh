@@ -13,15 +13,16 @@ bg_color_file=$dir/colors/bg
 fg_color_file=$dir/colors/fg
 bold_color_file=$dir/colors/bold
 
-########################
-### Select a profile ###
-########################
+# -----------------------------------------------------------------------------
+# => Select a profile
+# -----------------------------------------------------------------------------
 
 declare -a profiles
 declare -a visnames
-profiles=($(gconftool-2 -R $gconfdir | grep $gconfdir | cut -d/ -f5 |  cut -d: -f1))
+profiles=($(gconftool-2 -R $gconfdir | grep $gconfdir | cut -d/ -f5 |  \
+    cut -d: -f1))
 
-#get visible names
+# Get visible names
 for index in  ${!profiles[@]}; 
 do    
     visnames[$index]=$(gconftool-2 -g $gconfdir/${profiles[$index]}/visible_name);
@@ -40,9 +41,9 @@ done
 profile_key=$(expr ${REPLY} - 1)
 unset IFS
 
-#########################################################
-### Show the choices made and prompt for confirmation ###
-#########################################################
+# -----------------------------------------------------------------------------
+# =>  Show the choices made and prompt for confirmation
+# -----------------------------------------------------------------------------
 
 echo    "You have selected:"
 echo -e "  Profile: $profile_name (gconf key: ${profiles[$profile_key]})\n"
@@ -56,9 +57,9 @@ if [[ $confirmation != YES ]]; then
   exit 3
 fi
 
-########################
-### Finally... do it ###
-########################
+# -----------------------------------------------------------------------------
+# Finally... do it
+# -----------------------------------------------------------------------------
 
 echo -e "Confirmation received -- applying settings\n"
 
