@@ -16,7 +16,6 @@ DOTFILES=(
     gitconfig
     gitignore
     vim
-    vimrc
 )
 
 for FILE in ${DOTFILES[*]} ; do
@@ -28,21 +27,27 @@ for FILE in ${DOTFILES[*]} ; do
     # [ -L FILE ]: true if FILE is a symbolic link
     if [ -e "$DEST" -a ! -L "$DEST" ]
     then
-        mkdir -p $(dirname "$DOTFILES_OLD/$FILE")
-        mv "$DEST" "$DOTFILES_OLD/$FILE"
-        echo "$DEST : $DOTFILES_OLD/$FILE"
+        mkdir -p $(dirname "$DOTFILES_OLD/.$FILE")
+        mv "$DEST" "$DOTFILES_OLD/.$FILE"
     fi
 
     cp -r "$ROOT/.$FILE" "$HOME"
 done
 
+# -----------------------------------------------------------------------------
+# => Vim settings
+# -----------------------------------------------------------------------------
+if [ -e "$HOME"/.vimrc ]
+then
+    mv "$HOME"/.vimrc "$DOTFILES_OLD"/.vimrc
+fi
+ln -s ~/.vim/vimrc ~/.vimrc
 
 # -----------------------------------------------------------------------------
 # => Gnome-terminal settings
 # -----------------------------------------------------------------------------
 
 "$ROOT"/gnome-terminal-colors/install.sh
-
 
 # -----------------------------------------------------------------------------
 # => Guake terminal settings
