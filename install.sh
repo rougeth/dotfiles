@@ -50,5 +50,5 @@ done
 gconftool-2 -s -t string /apps/guake/style/font/palette \
     $(cat "$ROOT"/gnome-terminal-colors/colors/palette)
 gconftool-2 -s -t string /apps/guake/style/font/palette "Ubuntu Mono 12"
-gconftool-2 -s -t int /apps/guake/style/background/transparencyl 0 
+gconftool-2 -s -t int /apps/guake/style/background/transparency 0 
 
