@@ -6,6 +6,10 @@
 " Version:
 " 1.0 - 11/12/13
 "
+" Inspired by:
+"
+"   Ravishi's dotvim https://github.com/ravishi/dotvim
+"   vimbits.com
  
 " -----------------------------------------------------------------------------
 " => Important
@@ -20,11 +24,15 @@ execute pathogen#infect()
 execute pathogen#helptags()
 
 " Plugins
+" -------
 
 " Powerline
 set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim/
 set laststatus=2
 set noshowmode
+
+" Emmet
+let g:user_emmet_leader_key='<C-E>'
  
 " -----------------------------------------------------------------------------
 " => Moving around, searching and patterns
@@ -149,8 +157,23 @@ set wildignore=*.o,*~.,*.pyc
 " Command-line completion shows a list of matches
 set wildmenu
  
+" -----------------------------------------------------------------------------
+" => Shortcuts
+" -----------------------------------------------------------------------------
+
+" F10 cleans up the search history
+map <f10> :let @/ = ""<cr>
+
+
+" -----------------------------------------------------------------------------
+" => Others
+" -----------------------------------------------------------------------------
+
+" This beauty remembers where you were the last time you edited the file, and
+" returns to the same position. Seriously, it's awesome.
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
  
- 
+
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 nnoremap <C-p> "+gP
