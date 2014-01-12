@@ -43,6 +43,10 @@ then
 fi
 ln -s ~/.vim/vimrc ~/.vimrc
 
+# Configuring Command-T
+cd ~/.vim/bundle/command-t/ruby/command-t
+ruby extconf.rb && make
+
 # -----------------------------------------------------------------------------
 # => Gnome-terminal settings
 # -----------------------------------------------------------------------------
