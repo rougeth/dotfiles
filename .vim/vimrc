@@ -35,7 +35,7 @@ set smartcase
 set cmdheight=2
  
 " Width of the diplay
-set columns=80
+set columns=84
  
 " Show the line number for each line
 set number

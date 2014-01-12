@@ -84,3 +84,5 @@ gconftool-2 -s -t bool $profile_path/use_theme_colors false
 # font settings
 gconftool-2 -s -t string $profile_path/font "Ubuntu Mono 12"
 gconftool-2 -s -t bool $profile_path/use_system_font false
+
+gconftool-2 -s -t int $profile_path/default_size_columns 84
