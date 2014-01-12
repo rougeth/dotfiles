@@ -15,7 +15,9 @@
 set nocompatible
  
 " Enable pathogen
-" execute pathogen#infect()
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+execute pathogen#helptags()
  
 " -----------------------------------------------------------------------------
 " => Moving around, searching and patterns
