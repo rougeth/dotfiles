@@ -31,8 +31,8 @@ set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim/
 set laststatus=2
 set noshowmode
 
-" Emmet
-let g:user_emmet_leader_key='<C-E>'
+" Commant-T
+let g:CommantTScanDotDirectories=1
  
 " -----------------------------------------------------------------------------
 " => Moving around, searching and patterns
@@ -152,7 +152,7 @@ set autoread
 set history=100
  
 " List of patterns to ignore files for file name completion
-set wildignore=*.o,*~.,*.pyc
+set wildignore=*.o,~*,*.pyc
  
 " Command-line completion shows a list of matches
 set wildmenu
@@ -163,7 +163,6 @@ set wildmenu
 
 " F10 cleans up the search history
 map <f10> :let @/ = ""<cr>
-
 
 " -----------------------------------------------------------------------------
 " => Others
