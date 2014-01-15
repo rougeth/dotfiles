@@ -5,6 +5,9 @@
 # => Copying dotfiles
 # -----------------------------------------------------------------------------
 
+echo
+echo "=> Copying .dotfiles to $HOME"
+
 ROOT=`pwd`
 DOTFILES_OLD=~/.dotfiles-old/`date +%d:%m:%y-%H:%M`
 mkdir -p "$DOTFILES_OLD"
@@ -34,9 +37,15 @@ for FILE in ${DOTFILES[*]} ; do
     cp -r "$ROOT/.$FILE" "$HOME"
 done
 
+echo "Done."
+echo
+
 # -----------------------------------------------------------------------------
 # => Vim settings
 # -----------------------------------------------------------------------------
+echo
+echo "=> Installing vim plugins"
+
 if [ -e "$HOME"/.vimrc ]
 then
     mv "$HOME"/.vimrc "$DOTFILES_OLD"/.vimrc
@@ -56,17 +65,31 @@ fc-cache -vf ~/.fonts
 mkdir -p ~/.config/fontconfig/conf.d/ 
 mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
+echo "Done."
+echo
+
 # -----------------------------------------------------------------------------
 # => Gnome-terminal settings
 # -----------------------------------------------------------------------------
 
+echo
+echo "=> Changing gnome-terminal settings"
+
 "$ROOT"/gnome-terminal-colors/install.sh
+
+echo "Done."
+echo
 
 # -----------------------------------------------------------------------------
 # => Guake terminal settings
 # -----------------------------------------------------------------------------
+
+echo
+echo "=> Changing guake settings"
+
 gconftool-2 -s -t string /apps/guake/style/font/palette \
     $(cat "$ROOT"/gnome-terminal-colors/colors/palette)
 gconftool-2 -s -t string /apps/guake/style/font/palette "Ubuntu Mono 12"
 gconftool-2 -s -t int /apps/guake/style/background/transparency 0 
 
+echo "Done."
