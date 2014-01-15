@@ -31,7 +31,7 @@ bold_white="\e[1;37m"
 
 user="${bold_white}\u"
 host="${bold_green}\h"
-path="${grey}\W"
+path="${white}\W"
 
 if [[ "$SSH_TTY" ]]; then
     # connected via ssh
@@ -96,7 +96,7 @@ prompt_git() {
 
     # Combine the branch name and state information
     if [[ $git_state ]]; then
-        git_info="${grey}$git_info $git_state"
+        git_info="$git_info $git_state"
     fi
 
     printf "${git_info}${reset}"
