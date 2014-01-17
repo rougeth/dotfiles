@@ -29,8 +29,8 @@ bold_purple="\e[1;35m"
 bold_cyan="\e[1;36m"
 bold_white="\e[1;37m"
 
-user="${bold_white}\u"
-host="${bold_green}\h"
+user="${red}\u"
+host="${blue}\h"
 path="${white}\W"
 
 if [[ "$SSH_TTY" ]]; then
