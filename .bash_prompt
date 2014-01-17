@@ -102,11 +102,24 @@ prompt_git() {
     printf "${git_info}${reset}"
 }
 
+prompt_virtualenv() {
+    local env
+    
+    if [[ -n $VIRTUAL_ENV ]]; then
+        env="(${VIRTUAL_ENV##*/}) "
+    else
+        env=""
+    fi
+    
+    printf "${white}${env}"
+}
+
 
 # Set the terminal title to the current working directory
 PS1="\[\033]0;\w\007\]"
 
 # Build the prompt
+PS1+="\$(prompt_virtualenv)"
 PS1+="${user}" # Username
 PS1+=" "
 PS1+="${host}" # Host
@@ -114,5 +127,6 @@ PS1+=" "
 PS1+="${path}" # Working directory
 PS1+=" "
 PS1+="\$(prompt_git)" # Git details
+PS1+=" "
 PS1+="${reset}"
 PS1+="\n$ " # Newline
