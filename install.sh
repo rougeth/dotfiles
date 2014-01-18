@@ -1,16 +1,12 @@
 #!/bin/bash
 
-
 # -----------------------------------------------------------------------------
 # => Copying dotfiles
 # -----------------------------------------------------------------------------
 
-echo
-echo "=> Copying .dotfiles to $HOME"
-
 ROOT=`pwd`
-DOTFILES_OLD=~/.dotfiles-old/`date +%d:%m:%y-%H:%M`
-mkdir -p "$DOTFILES_OLD"
+DOTFILES_BACKUP=~/.dotfiles-backup/`date +%d:%m:%y-%H:%M`
+mkdir -p "$DOTFILES_BACKUP"
 
 DOTFILES=(
     bashrc
@@ -30,27 +26,24 @@ for FILE in ${DOTFILES[*]} ; do
     # [ -L FILE ]: true if FILE is a symbolic link
     if [ -e "$DEST" -a ! -L "$DEST" ]
     then
-        mkdir -p $(dirname "$DOTFILES_OLD/.$FILE")
-        mv "$DEST" "$DOTFILES_OLD/.$FILE"
+        mkdir -p $(dirname "$DOTFILES_BACKUP/.$FILE")
+        mv "$DEST" "$DOTFILES_BACKUP/.$FILE"
     fi
 
     cp -r "$ROOT/.$FILE" "$HOME"
 done
 
-echo "Done."
-echo
-
 # -----------------------------------------------------------------------------
 # => Vim settings
 # -----------------------------------------------------------------------------
-echo
-echo "=> Installing vim plugins"
 
 if [ -e "$HOME"/.vimrc ]
 then
-    mv "$HOME"/.vimrc "$DOTFILES_OLD"/.vimrc
+    mv "$HOME"/.vimrc "$DOTFILES_BACKUP"/.vimrc
 fi
 ln -s ~/.vim/vimrc ~/.vimrc
+
+vim +BundleInstall +qall
 
 # Configuring Command-T
 cd ~/.vim/bundle/command-t/ruby/command-t
@@ -62,34 +55,11 @@ wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
 wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
 mkdir -p ~/.fonts/ && mv PowerlineSymbols.otf ~/.fonts/
 fc-cache -vf ~/.fonts
-mkdir -p ~/.config/fontconfig/conf.d/ 
+mkdir -p ~/.config/fontconfig/conf.d/
 mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
-
-echo "Done."
-echo
 
 # -----------------------------------------------------------------------------
 # => Gnome-terminal settings
 # -----------------------------------------------------------------------------
 
-echo
-echo "=> Changing gnome-terminal settings"
-
 "$ROOT"/gnome-terminal-colors/install.sh
-
-echo "Done."
-echo
-
-# -----------------------------------------------------------------------------
-# => Guake terminal settings
-# -----------------------------------------------------------------------------
-
-echo
-echo "=> Changing guake settings"
-
-gconftool-2 -s -t string /apps/guake/style/font/palette \
-    $(cat "$ROOT"/gnome-terminal-colors/colors/palette)
-gconftool-2 -s -t string /apps/guake/style/font/palette "Ubuntu Mono 12"
-gconftool-2 -s -t int /apps/guake/style/background/transparency 0 
-
-echo "Done."
