@@ -25,6 +25,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'mattn/gist-vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
 
 " -----------------------------------------------------------------------------
 " => PluginsPowerline
