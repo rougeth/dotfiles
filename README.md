@@ -10,6 +10,12 @@ My dotfiles for Ubuntu (I think it also runs well on OSX).
 * Clone the repository: `git clone --recursive https://github.com/rougeth/dotfiles.git && cd dotfiles`
 * Copy all the dotfiles (except .git/ and .gitmodules) to the $HOME directory: ```cp -r `ls -d .??* | egrep -v '(.git$|.gitmodules)'` $HOME ```
 
+## VIM
+
+### Plugins
+
+[Here](https://github.com/rougeth/dotfiles/blob/master/.vim/vimrc#L15).
+
 ### Configuring Vim
 
 * Create a link for ~/.vim/vimrc: `ln -s ~/.vim/vimrc ~/.vimrc`
