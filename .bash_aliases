@@ -7,6 +7,3 @@ alias -- -="cd -"
 alias ls="ls --color=auto"
 alias ll="ls -l"
 alias la="ls -Al"
-
-# Git
-alias g="git"

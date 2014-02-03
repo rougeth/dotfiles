@@ -15,8 +15,9 @@
     changed = yellow bold
     untracked = red bold
 [alias]
-    a = add .
+    a = add
+    aa = add .
     c = commit
-    ca = commit -a
     cm = commit -m
     s = status
+    l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)'
