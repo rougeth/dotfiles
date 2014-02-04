@@ -2,21 +2,20 @@ Config { font = "-misc-fixed-*-*-*-*-13-*-*-*-*-*-*-*"
        , borderColor = "black"
        , border = FullB
        , bgColor = "black"
-       , fgColor = "#707880"
+       , fgColor = "#c5c8c6"
        , position = TopW L 100
        , lowerOnStart = True
        , persistent = True
        , hideOnStart = False
-       , commands = [ Run Weather "SBBR" ["-t", "<station>: <tempC>C", "-L"
+       , commands = [ Run Weather "SBBR" ["-t", "<tempC>°C", "-L"
                         , "18", "-H", "25", "--normal", "#b5bd68"
                         , "--high", "#cc6666", "--low", "#81a2be"] 36000
-                    , Run Cpu ["-L", "3", "-H", "50", "--normal", "#b5bd68"
+                    , Run Cpu ["-t", "C <total>%", "-L", "3", "-H", "50", "--normal", "#b5bd68"
                         , "--high", "#cc6666"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Memory ["-t","M <usedratio>%"] 10
     		        , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-                    , Run BatteryP ["BAT0"] ["-t", "Batt: <acstatus>", "-p"
-                        , "3", "--", "-O", "On<fc=#b5bd68><left>%</fc>", "-o"
-                        , "Off<fc=#cc6666><left>%</fc>"] 600
+                    , Run BatteryP ["BAT0"] ["-t", "B <left>%", "-L", "25"
+                        , "-H", "80", "-l", "#cc6666", "-h", "#b5bd68"] 600
                     , Run StdinReader
                     ]
        , sepChar = "%"
