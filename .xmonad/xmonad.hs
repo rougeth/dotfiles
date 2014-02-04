@@ -5,12 +5,10 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
-import XMonad.Layout.Named (named)
 import XMonad.Layout.Fullscreen
+import XMonad.Layout.Named (named)
 import XMonad.Layout.NoBorders (noBorders, smartBorders)
 import XMonad.Layout.PerWorkspace (onWorkspace)
-import XMonad.Layout.Spiral
-import XMonad.Layout.ThreeColumns
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import Graphics.X11.ExtraTypes.XF86
@@ -99,17 +97,20 @@ myBorderWidth = 1
 --
 myModMask = mod4Mask -- Windows/Command key
 
-myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     ---------------------------------------------------------------------------
     -- Custom key bindings
     --
     [ ((modMask, xK_KP_Enter), dwmpromote)
     , ((modMask .|. controlMask, xK_m), spawn "amixer set -D pulse Master toggle")
-    , ((modMask .|. controlMask, xK_j), spawn "amixer set -D pulse Master 5%-")
     , ((modMask .|. controlMask, xK_k), spawn "amixer set -D pulse Master 5%+")
-    , ((0, xF86XK_AudioLowerVolume), spawn "amixer set -D pulse Master 5%-")
-    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set -D pulse Master 5%+")
+    , ((modMask .|. controlMask, xK_j), spawn "amixer set -D pulse Master 5%-")
+    -- Macbook Air keys
+    , ((0, xF86XK_AudioMute),           spawn "amixer set -D pulse Master toggle")
+    , ((0, xF86XK_AudioRaiseVolume),    spawn "amixer set -D pulse Master 5%+")
+    , ((0, xF86XK_AudioLowerVolume),    spawn "amixer set -D pulse Master 5%-")
+    , ((0, xF86XK_MonBrightnessUp),     spawn "xbacklight + 10")
+    , ((0, xF86XK_MonBrightnessDown),   spawn "xbacklight - 10")
     ]
 
 -------------------------------------------------------------------------------
