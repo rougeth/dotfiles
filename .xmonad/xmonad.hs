@@ -164,7 +164,7 @@ defaults = defaultConfig {
     , focusedBorderColor    = myFocusedBorderColor
 
     -- key bindings
-    , keys = myKeys
+    , keys = myKeys <+> keys defaultConfig
     -- mouseBindings = myMouseBindings
 
     -- hooks, layouts
