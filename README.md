@@ -13,11 +13,10 @@ My dotfiles for Ubuntu (I think it also runs well on OSX).
 ## XMonad
 
 * Install XMonad and everything I need to configure it: `sudo apt-get install xmonad libghc-xmonad-contrib-dev libghc-xmonad-dev suckless-tools`
-* Intall cabal and xmobar: `sudo apt-get install cabal-install && cabal install xmobar`
-
-### Tips
-
-* Install gtk-chtheme to change gtk theme (only one that works for me): `sudo apt-get install gtk-chtheme`
+* Install cabal and xmobar: `sudo apt-get install cabal-install && cabal install xmobar`
+* (Optional) Install gtk-chtheme to change gtk theme (only one that works for me): `sudo apt-get install gtk-chtheme`
+* To-do:
+    * Add support to macbook air functions keys.
 
 ## VIM
 
