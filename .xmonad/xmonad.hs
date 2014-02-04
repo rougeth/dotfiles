@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.DwmPromote (dwmpromote)
 import XMonad.Config.Gnome (gnomeConfig)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -98,19 +99,17 @@ myBorderWidth = 1
 --
 myModMask = mod4Mask -- Windows/Command key
 
+myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     ---------------------------------------------------------------------------
     -- Custom key bindings
     --
-    [ ((modMask .|. controlMask, xK_l),
-        spawn "xscreensaver-command -lock")
-    , ((modMask .|. shiftMask, xK_p),
-        spawn "screenshot")
-    , ((0, xF86XK_AudioMute), spawn "amixer set -q Master toggle")
-    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set -q Master 10%+")
-    , ((0, xF86XK_AudioLowerVolume), spawn "amixer set -q Master 10%-")
-    , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight +10")
-    , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -10")
+    [ ((modMask, xK_KP_Enter), dwmpromote)
+    , ((modMask .|. controlMask, xK_m), spawn "amixer set -D pulse Master toggle")
+    , ((modMask .|. controlMask, xK_j), spawn "amixer set -D pulse Master 5%-")
+    , ((modMask .|. controlMask, xK_k), spawn "amixer set -D pulse Master 5%+")
+    , ((0, xF86XK_AudioLowerVolume), spawn "amixer set -D pulse Master 5%-")
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set -D pulse Master 5%+")
     ]
 
 -------------------------------------------------------------------------------
@@ -134,7 +133,7 @@ myStartupHook = return ()
 -- Run xmonad with all the defaults we set up.
 --
 main = do
-    xmproc <- spawnPipe "/home/utah/.cabal/bin/xmobar /home/utah/.xmobarrc"
+    xmproc <- spawnPipe "~/.cabal/bin/xmobar ~/.xmobarrc"
     xmonad $ defaults {
         logHook = dynamicLogWithPP $ xmobarPP {
               ppOutput = hPutStrLn xmproc
@@ -165,7 +164,7 @@ defaults = defaultConfig {
     , focusedBorderColor    = myFocusedBorderColor
 
     -- key bindings
-    -- keys = myKeys
+    , keys = myKeys
     -- mouseBindings = myMouseBindings
 
     -- hooks, layouts
