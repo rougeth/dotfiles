@@ -1,0 +1,24 @@
+# Navigation
+alias ..="cd .."
+alias ...="cd ../../"
+alias -- -="cd -"
+
+# Shortcuts
+alias d="cd ~/Dropbox"
+alias dl="cd ~/Download"
+alias dt="cd ~/Desktop"
+alias p="cd ~/Projects"
+alias g="git"
+alias h="history"
+
+# Listing files
+if ls --color > /dev/null 2>$1; then # GNU `ls`
+    colorgflag="--color"
+else # OS X `ls`
+    colorgflag="-G"
+fi
+
+alias ls="ls ${colorgflag}"
+alias ll="ls -l"
+alias la="ls -Al"
+alias lsd="ls -lF | grep --color=never '^d'"
