@@ -32,4 +32,6 @@ mkdir -p ~/.config/fontconfig/conf.d/
 mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 ```
 
+---
+
 > .osx script based on [Mathias Bynens‮](https://github.com/mathiasbynens/dotfiles/blob/master/.osx)'s script.
