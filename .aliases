@@ -12,7 +12,7 @@ alias g="git"
 alias h="history"
 
 # Listing files
-if ls --color > /dev/null 2>$1; then # GNU `ls`
+if ls --color > /dev/null 2>&1; then # GNU `ls`
     colorgflag="--color"
 else # OS X `ls`
     colorgflag="-G"
