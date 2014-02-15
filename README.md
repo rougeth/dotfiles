@@ -2,7 +2,7 @@
 
 My dotfiles.
 
-## How to use
+### How to use
 
 > **Make sure to backup your old dotfiles**.
 
@@ -10,11 +10,6 @@ My dotfiles.
 * Clone the repository: `git clone --recursive https://github.com/rougeth/dotfiles.git && cd dotfiles`
 * Copy all the dotfiles (except .git/ and .gitmodules) to the $HOME directory: ```cp -r `ls -d .??* | egrep -v '(.git$|.gitmodules)'` $HOME ```
 
-## VIM
-
-### Plugins
-
-[Here](https://github.com/rougeth/dotfiles/blob/master/.vim/vimrc#L15).
 
 ### Configuring Vim
 
@@ -31,6 +26,14 @@ fc-cache -vf ~/.fonts
 mkdir -p ~/.config/fontconfig/conf.d/
 mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 ```
+
+### iTerm colors
+
+`open "init/Hybrid.itermcolors"`
+
+### Sublime text 3 preferences
+
+`cp -r init/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null`
 
 ---
 

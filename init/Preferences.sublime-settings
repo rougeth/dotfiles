@@ -1,0 +1,32 @@
+{
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Ubuntu Mono",
+	"font_size": 14,
+	"highlight_modified_tabs": true,
+	"hot_exit": false,
+	"line_padding_bottom": 0,
+	"line_padding_top": 0,
+	"margin": 0,
+	"open_files_in_new_window": true,
+	"remember_open_files": false,
+	"rulers":
+	[
+		72,
+		79
+	],
+	"show_encoding": true,
+	"show_line_endings": false,
+	"show_tab_close_buttons": true,
+	"smart_indent": true,
+	"tab_size": 4,
+	"theme": "Spacegray.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_automatic_white_space": true,
+	"trim_trailing_white_space_on_save": true,
+	"use_simple_full_screen": true,
+	"word_wrap": "true",
+	"ignored_packages": [],
+	"vintage_start_in_command_mode": true
+}
