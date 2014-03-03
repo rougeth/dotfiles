@@ -1,6 +1,8 @@
-export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/local/share/python:$PATH
 
+# Because of Homebrew
+VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 source /usr/local/bin/virtualenvwrapper.sh
+export PATH=/usr/local/bin:$PATH
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
