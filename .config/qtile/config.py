@@ -1,3 +1,5 @@
+# coding: utf-8
+
 from libqtile.config import Key, Screen, Group, Match
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
@@ -51,7 +53,8 @@ dgroups_app_rules = []
 def init_widgets_defaults():
     return dict(
         font='Ubuntu Mono',
-        fontsize=16
+        fontsize=16,
+        padding=5
     )
 
 
@@ -83,8 +86,11 @@ def init_widgets():
             type='line',
             line_width=1,
         ),
+        widget.TextBox(text='♬'),
         widget.Volume(),
+        widget.TextBox(text='⚡'),
         widget.Battery(),
+        widget.TextBox(text='⌚'),
         widget.Clock('%d/%m/%Y  %I:%M %p'),
     ]
 
