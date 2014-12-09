@@ -11,6 +11,7 @@ alias p="cd ~/Projects"
 alias g="git"
 alias h="history"
 alias o="open"
+alias yt="youtube-dl --extract-audio --audio-format mp3"
 
 # Listing files
 if ls --color > /dev/null 2>&1; then # GNU `ls`
