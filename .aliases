@@ -4,13 +4,8 @@ alias ...="cd ../../"
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Dropbox"
-alias dl="cd ~/Download"
-alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias g="git"
-alias h="history"
-alias o="open"
 alias yt="youtube-dl --extract-audio --audio-format mp3"
 
 # Listing files
