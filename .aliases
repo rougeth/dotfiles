@@ -1,22 +1,3 @@
-# Navigation
-alias ..="cd .."
-alias ...="cd ../../"
-alias -- -="cd -"
-
 # Shortcuts
-alias p="cd ~/Projects"
-alias g="git"
 alias yt="youtube-dl --extract-audio --audio-format mp3"
-
-# Listing files
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-    colorgflag="--color"
-else # OS X `ls`
-    colorgflag="-G"
-fi
-
-alias ls="ls ${colorgflag}"
-alias ll="ls -l"
-alias la="ls -Al"
-alias lsd="ls -lF | grep --color=never '^d'"
 alias clrs='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
