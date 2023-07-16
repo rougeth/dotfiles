@@ -1,9 +1,10 @@
 [user]
     name = Marco Rougeth
-    email = marco@rougeth.com
+    email = rougeth@users.noreply.github.com
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = ~/.gitignore
+	quotePath = false
 [color]
     ui = always
 [color "branch"]
@@ -16,5 +17,5 @@
     l = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 [push]
     default = simple
-[commit]
-    gpgsign = true
+[init]
+	defaultBranch = main
