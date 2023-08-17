@@ -1,5 +1,5 @@
-# Prezto
-source ~/.zprezto/init.zsh
+# Starship
+eval "$(starship init zsh)"
 
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
