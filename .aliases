@@ -1,3 +1,6 @@
-# Shortcuts
-alias yt="youtube-dl --extract-audio --audio-format mp3"
-alias clrs='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
+alias ..='cd ..'
+alias ls='ls --color=auto'
+alias ll='ls -la'
+alias diff='colordiff'
+
+alias ytaudio="youtube-dl --extract-audio --audio-format mp3"
