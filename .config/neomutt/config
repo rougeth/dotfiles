@@ -1,0 +1,7 @@
+# vim: filetype=neomuttrc
+# muttrc file for account $fulladdr
+
+set realname = "Marco Rougeth"
+
+set sort = reverse-threads
+set help = no

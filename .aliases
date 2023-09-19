@@ -4,3 +4,4 @@ alias ll='ls -la'
 alias diff='colordiff'
 
 alias ytaudio="youtube-dl --extract-audio --audio-format mp3"
+alias mutt="TERM=xterm-direct neomutt"

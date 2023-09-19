@@ -1,0 +1,40 @@
+# vim: filetype=muttrc
+#
+set color_directcolor = yes
+
+set my_dark = "#555555"
+set my_gray = "#AAAAAA"
+set my_silver = "#DDDDDD"
+set my_fuchsia = "#F012BE"
+set my_maroon = "#85144b"
+set my_blue = "#0074D9"
+set my_navy = "#004480"
+set my_yellow = "#FFDC00"
+set my_white = "#FFFFFF"
+set my_red = "#FF4136"
+set my_lime = "#01FF70"
+set my_aqua = "#b3dbff"
+set my_orange = "#FF851B"
+
+
+color index $my_silver default
+color index_number $my_gray default
+color index_flags $my_lime default
+color index_flags $my_yellow default ~N
+color index_author $my_blue default
+color index_size $my_red default "~z >100000"
+
+color index $my_white default "~d <3d"
+color index_author $my_orange default "~d <3d"
+
+# Read
+color index $my_gray default ~R
+color index_author $my_navy default ~R
+color index_flags $my_dark default ~R
+color index_number $my_dark default ~R
+
+# Deleted
+color index $my_red default ~D
+color index_flags $my_red default ~D
+color index_author $my_red default ~D
+color index_number $my_red default ~D
