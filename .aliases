@@ -1,3 +1,4 @@
+#!/bin/bash
 alias ..='cd ..'
 alias ls='ls --color=auto'
 alias ll='ls -la'
@@ -5,3 +6,4 @@ alias diff='colordiff'
 
 alias ytaudio="youtube-dl --extract-audio --audio-format mp3"
 alias mutt="TERM=xterm-direct neomutt"
+alias s='selected_dir=$(find ~/src -type d -print -maxdepth 1 | fzf --height 15 --layout reverse) && [ -n "$selected_dir" ] && cd "$selected_dir"'
