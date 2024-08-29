@@ -15,9 +15,6 @@
   (require 'use-package))
 (setq use-package-always-ensure t)
 
-(load (expand-file-name "rgth.el" user-emacs-directory))
-(load (expand-file-name "config/doom-org.el" user-emacs-directory))
-
 (use-package counsel)
 
 ;; Evil mode
@@ -37,14 +34,14 @@
 	which-key-max-display-columns 4
 	which-key-idle-delay 0.3))
 
-(use-package fzf)
+;; (use-package fzf)
 
 ;; Setup org mode
 (use-package org
   :custom
   (org-startup-folded 'overview)
   :config
-  (setq org-directory "/Users/marco/Library/Mobile Documents/com~apple~CloudDocs/Documents/Notas"
+  (setq org-directory "~/Documents/org"
 	org-ellipsis " ▼"
 	org-hide-emphasis-markers t
 	org-startup-indented t
@@ -56,27 +53,9 @@
 	;; insert new headings after current subtree rather than inside it
 	org-insert-heading-respect-content t))
 
-(add-hook 'org-mode-hook #'rgth/set-org-level)
-
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
-
-(use-package org-roam
-  :config
-  (setq org-roam-directory (file-truename "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Notas")
-	org-roam-capture-templates '(("d" "default" plain "%?"
-				    :target (file+head "${slug}.org"
-						       "#+title: ${title}\n\n")
-				    :unnarrowed t))))
-(use-package simpleclip
-  :init 'simpleclip-mode)
 
 ;; general
 (use-package general
-  :after org-roam
   :config
   (general-define-key
     :states '(normal motion visual)
@@ -84,7 +63,7 @@
     :prefix "SPC"
 
     "SPC" '(counsel-M-x :which-key "M-x")
-    
+
     ;; File
     "f" '(nil :which-key "file")
 
@@ -94,35 +73,30 @@
     "bs" '((switch-to-buffer "*scratch*") :which-key "switch buffers")
     "be" '(eval-buffer :which-key "eval-buffer")
 
-    ;; Notes
-    "n" '(nil :which-key "notes")
-    "nn" '(org-roam-node-find :which-key "new note")
-    "nf" '(rgth/notes-find-note :which-key "find note")
+    ;; Agenda
+    "a" '(nil :which-key "Agenda")
+    "aa" '(org-agenda :which-key "Agenda View")
 
-    "h" '(nil :which-key "help")
-    "hr" '((lambda () (interactive) (load (expand-file-name "init.el" user-emacs-directory))) :which-key "help")
-    "hi" '((lambda () (interactive) (find-file-existing "~/.emacs.d/init.el")) :which-key "init.el"))
-  ;; End of SPC leader
+    ;; Capture
+    "c" '(nil :which-key "Capture")
+    "cd" '((lambda() (interactive) (org-capture nil "d")) :which-key "Agenda View")))
 
-  (general-define-key
-    :keymaps 'override
-    "M-c" 'simpleclip-copy
-    "M-v" 'simpleclip-paste)
-
-  (general-define-key
-    :keymaps 'org-mode-map
-    "<return>" '+org/dwim-at-point
-    "M-<return>" '+org/insert-item-below
-    "M-S-<return>" '+org/insert-item-above
-    "M-C-<return>" 'org-insert-subheading
-    )
-
-  (general-define-key
-    :states '(normal)
-    :keymaps 'org-mode-map
-    "<" 'org-do-promote
-    ">" 'org-do-demote
-    "*" 'org-toggle-heading))
-
-(use-package dracula-theme)
-(load-theme 'dracula t)
+(setq org-agenda-files '("~/Documents/org/"))
+(setq org-agenda-custom-commands
+      '(("s" "Standup"
+	 ((agenda "" ((org-agenda-overriding-header "Completed yesterday")
+		      (org-agenda-start-day "-1d")
+		      (org-agenda-skip-function '(org-agenda-skip-entry-if 'nottodo 'done))
+		      (org-agenda-span 'day)
+		      (org-agenda-show-log t)
+		      (org-agenda-prefix-format "%-12:c% s")
+		      (org-agenda-time-grid nil)))
+	 (agenda "" ((org-agenda-overriding-header "Working on today")
+		      (org-agenda-span 'day)
+		      (org-agenda-prefix-format "%-12:c% s")
+		      (org-deadline-warning-days 1))))
+	 ((org-agenda-block-separator " ")))))
+(setq org-capture-templates
+      '(("d" "Done" entry
+	 (file+headline "inbox.org" "Inbox")
+	 "* DONE %^{Task completed}\nCLOSED: [%<%Y-%m-%d %a %H:%M>]\n")))
